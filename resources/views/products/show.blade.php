@@ -37,9 +37,15 @@
 
                 <div class="text-center">
                     <!-- Button trigger modal -->
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddToCart">
-                        <i class="material-icons">add</i>Añadir a carrito
-                    </button>
+                    @if(auth()->check())
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddToCart">
+                            <i class="material-icons">add</i>Añadir a carrito
+                        </button>
+                    @else
+                        <a href="{{ url('/login?redirect_to='.url()->current()) }}" class="btn btn-primary">
+                            <i class="material-icons">add</i>Añadir a carrito
+                        </a>
+                    @endif
                 </div>
 
                 <div class="row" style="margin-top: -25px;">
