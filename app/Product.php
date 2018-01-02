@@ -29,6 +29,13 @@ class Product extends Model
             return $featuredImage->url;
         }
 
-        return '/images/products/default.jpg';
+        return '/images/default.jpg';
+    }
+
+    public function getCategoryNameAttribute()
+    {
+        if($this->category) return $this->category->name;
+
+        return 'General';
     }
 }
